@@ -10,7 +10,7 @@ VS 15.4.4 comes with a host of updates to tools such as Xamarin, better support 
 
 The following screen grab shows the latest release of Visual Studio 2017:
 
-![Image of Visual Studio About](https://www.evernote.com/shard/s220/res/dbfd4b52-9abc-4b46-84da-1e97c40dd16f)
+![](https://raw.githubusercontent.com/JadedEric/xamarin-netstandard/master/images/01.png)
 
 Next thing we need to make sure of, is that we have the Prism 7.x pre-release template pack installed. Take note, however, that if you update the template pack over the existing version 6.x pack, that your applications might not work. Do this in an isolated environment for testing only.
 
