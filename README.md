@@ -16,7 +16,7 @@ Next thing we need to make sure of, is that we have the Prism 7.x pre-release te
 
 To grab the template pack for Prism, we utilize Visual Studio's extension installer by going through Tools - Extensions and Updates then in the left hand navigation items going through Online - Visual Studio Market then in the search bar, on the right hand side, looking for "Prism Template Pack":
 
-![Image of Visual Studio Package Manager](https://www.evernote.com/shard/s220/res/7e1d814d-ab38-4516-9581-e6269084a4d8)
+![](https://raw.githubusercontent.com/JadedEric/xamarin-netstandard/master/images/02.png)
 
 Notice that the version for the template pack is not 7.x, rather sitting at a version 2.0.7. The reason for the template pack is so that we can create a Prism-derived application from a template, rather than hand rolling the necessary dependencies into our applications manually. These templates also injects the necessary 3rd party assemblies required to compile and run Prism MVVM again your specific target platform, whether this is Android, iOS or Windows Phone.
 
@@ -24,7 +24,7 @@ Now that we have this installed, restart Visual Studio to apply the extension ch
 
 Create a new project in Visual Studio and choose Prism as your application derived template. To create a new project, you can go to File - New - Project or from the Start Page, Create New Project:
 
-![Image of Prism Template](https://www.evernote.com/shard/s220/res/a860ceb8-c5b1-44b4-b33d-0ad0696539e8)
+![](https://raw.githubusercontent.com/JadedEric/xamarin-netstandard/master/images/03.png)
 
 A few notes on the screen grab above:
 
@@ -34,19 +34,19 @@ A few notes on the screen grab above:
 
 Next up is choosing your platform and specifying your dependency container:
 
-![Image of Prism Wizard](https://www.evernote.com/shard/s220/res/7e883981-bc9e-46ab-8a97-81f2588ae161)
+![](https://raw.githubusercontent.com/JadedEric/xamarin-netstandard/master/images/04.png)
 
 I chose Microsoft's Unity (not Unity the game engine) as I'm comfortable with Unity and it's interpretation of dependency control, and a single Android application to make my life slightly easier in developing and testing this application.
 
 Once the application has been created, you should have a solution that looks something like this:
 
-![Image of Solution Tree](https://www.evernote.com/shard/s220/res/5964e58f-796d-4250-bf21-6161ca19b2b2)
+![](https://raw.githubusercontent.com/JadedEric/xamarin-netstandard/master/images/05.png)
 
 Notice that the shared library called Blog.Demo, has a warning on the dependencies? This is because common service locater, which is used by Unity to inject interface services into the container stack is still a PCL library and Visual Studio is warning you that it might not work in your current configuration. This is not a problem and you can safely ignore this warning as your application will still be compiled. We will fix this issue by updating our dependencies.
 
 Update your solution's dependencies to ensure that any new updates to the libraries have been brought down. It is a general rule of thumb to keep your packages up to date; do this by right-clicking on the solution, choosing Manage NuGet Packages:
 
-![Image of NuGet Package Manager](https://www.evernote.com/shard/s220/res/d9b0e0c2-f96d-4687-bff0-9a0ceea6facb)
+![](https://raw.githubusercontent.com/JadedEric/xamarin-netstandard/master/images/06.png)
 
 You should be presented with at least 7+ updates. Select all packages and update. Remember, rule of thumb is to keep them up to date.
 
@@ -66,7 +66,7 @@ Next, add a new NuGet package to the solution by right-clicking on the Dependenc
 
 Once installed, we need to create a new database context from which we will connect to our local database; create a new *.cs file in the data project, and call it DemoContext.cs, your project tree should look something like this:
 
-![Image of Data Project](https://www.evernote.com/shard/s220/res/e07d0016-e6af-41ff-a311-c3b59afbc7d0)
+![](https://raw.githubusercontent.com/JadedEric/xamarin-netstandard/master/images/07.png)
 
 In the BlogContext.cs file, remove the class entry and replace it with the following snippet. This simply tells us that the BlogContext class implements the DbContext abstract class, allowing us to interject our database specific implementation on top of Entity Framework's default implementation:
 
@@ -113,7 +113,7 @@ public class BlogContext: DbContext
 
 At this point you should get red squiggles at the bottom of the ```DbSet<Blog>```, that's because we're not referencing our Models project in our Data projects, so right-click on Dependencies and add a new Reference to the Models project:
 
-![Image of Project Reference](https://www.evernote.com/shard/s220/res/15533a11-d0c5-457a-8338-d150fb1afb22)
+![](https://raw.githubusercontent.com/JadedEric/xamarin-netstandard/master/images/08.png)
 
 ```Core.Settings``` should look something like this:
 
