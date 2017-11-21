@@ -54,7 +54,7 @@ Once the update has been completed, you're ready to start for the changes to tak
 
 We need to add one more NuGet to the Droid project, in order for deployment to device / emulator to be successful. Xamarin introduces a new pointer definition which fails on Android 7+ environments, so right-click on the *.Droid project and click on Manage NuGet Packages. Under the Browse tab, search for the package called "System.Runtime.CompilerServices.Unsafe" and ensure you select version 4.3.0, not 4.4.0 which is the latest version. Android 7+ with mono touch cannot compile 4.4.0, and is a known issue, as of time of writing this block.
 
-The application we'll be building is a simple sort-and-retrieve application, not the boring To-Do applications you find on the net, but something a bit more challenging, to show how .Net Standards shines above it's predecessor, Portable Class Library. You can also find the application on my GitHub repo, here.
+The application we'll be building is a simple sort-and-retrieve application, not the boring To-Do applications you find on the net, but something a bit more challenging, to show how .Net Standards shines above it's predecessor, Portable Class Library.
 
 For purpose of this demo, you'll notice that I've split the application into various modular sections, called "projects". I do this, so that I have greater maintainability over my code. I can also write unit tests for my projects without a dependency on my main shared library, affording a better code coverage to my overall code maintainability. This blog does not cover unit testing, but the tests as well as code coverage report has been included in the source code, should you wish to have a look at those.
 
@@ -251,3 +251,5 @@ f you've followed this example, you should have .Net Standard library implemente
 This is just one area where .Net Standards 2.0 has an advantage over PCL implementation, taking into consideration that the entire .Net Core library now became available to you to leverage off.
 
 If you have any queries or questions, pop me a message on my GitHub or if you're a Tangeneer pop me a chat on Teams and we can discuss your queries and questions further.
+
+In the next blog, I'll tackle Entity Framework Migrations.
